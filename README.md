@@ -1,1 +1,2 @@
-# proyecto_web del curso Responsive Design de Platzi
+#Design responsive
+Example simple of responsive web

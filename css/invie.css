@@ -321,14 +321,36 @@ input:focus, textarea:focus {
   display: inline-block;
   text-align: center;
   background: #395667;
-  position: absolute;
+  position: fixed;
   left: 20px;
   right: 20px;
   cursor: pointer;
   z-index: 3;
+  color: white;
+  display: none;
+}
+
+.video-demo {
+  max-width: 500px;
+  width: 100%;
+  border: 5px solid #3c5b6e;
+}
+
+.video-demo-contenedor {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
 }
 
 @media screen and (max-width: 800px) {
+  /*precios*/
+  .tabla {
+    margin: 50px 20px;
+  }
+  .tabla .contenedor {
+    overflow: auto;
+    border: 1px solid #273b47;
+  }
   /*portada*/
   .titulo {
     font-size: 45px;
@@ -367,6 +389,9 @@ input:focus, textarea:focus {
   }
   .contededor-guitarra.a {
     padding: 0;
+  }
+  .video-contenedor {
+    margin-bottom: 0;
   }
   /*footer*/
   .formulario {
@@ -408,7 +433,7 @@ input:focus, textarea:focus {
   }
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 650px){
   .header {
     text-align: center; 
   }
@@ -424,17 +449,35 @@ input:focus, textarea:focus {
   }
   .menu ul {
     padding: 0;
-  }  
+  }
 }
 
 @media screen and (max-width: 500px) {
+  .precios .header .logotipo {
+    margin: 50px 0;
+  }
+  .burger-button {
+    display: initial;
+  }
   /*portada*/
   .portada .contenedor {
     position: static;   
   }
+  .portada .button {
+    display: block;
+  } 
+  .col2 {
+    align-items: stretch;
+  }
+  .header {
+    position: static;
+  }
+  .header .contenedor {
+    position: static;
+  }
   .menu {   
     background: rgba(255, 60, 88, .8);
-    position: absolute;
+    position: fixed;
     left: -100%;
     top: 0;
     z-index: 2;
@@ -481,8 +524,14 @@ input:focus, textarea:focus {
   .title-b {
     font-size: 30px;
   }
+  .video-demo-contenedor {
+    margin: 0 10px 30px 10px;
+  }
 }
-.video-contenedor {
+video {
+  width: 100%;
+}
+  .video-contenedor {
   position: relative;
   padding-top: 56.25%;
 }

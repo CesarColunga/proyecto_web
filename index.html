@@ -38,10 +38,14 @@
     </section>
     <section id="guitarras" class="guitarras contenedor"> <!-- guitarras -->
       <h2>Nuestra guitarras</h2><!-- titulo -->
-      <div class="video-contenedor">
-        <iframe class="video-responsive" width="560" height="315" src="https://www.youtube.com/embed/aId-FmW6jX4" frameborder="0" allowfullscreen></iframe>
+      <div class="video-demo-contenedor">
+        <div class="video-demo">
+          <div class="video-contenedor">
+            <iframe class="video-responsive" width="560" height="315" src="https://www.youtube.com/embed/aId-FmW6jX4" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
       </div>
-      <video src="video/320x240.ogg"></video>
+      <!-- <video src="video/320x240.ogg"></video> -->
       <article class="guitarra"> <!-- guitarra 1 -->
         <img class="derecha" data-src="images/invie-acustica.png|images/invie-acustica2x.png" alt="Guitarra Invie Acustica" width="350"/>
         <div class="contenedor-guitarra-a">
@@ -110,6 +114,7 @@
       </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.6.2/blazy.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script type="text/javascript">
 
     var consulta = window.matchMedia('(max-width: 500px)');
@@ -122,6 +127,14 @@
       $menu.classList.toggle('active')
     };
 
+    function showMenu(){
+      $menu.classList.add('active')
+    };
+
+    function hideMenu(){
+      $menu.classList.remove('active')
+    };
+
     function mediaQuery(){
       if(consulta.matches) {
         console.log('Se escucha');
@@ -130,9 +143,18 @@
       }
       else {
         $burgerButton.removeEventListener('touchstart', toggleMenu);
-        console.log('No se escucha');
         }
     }
+
+    function mediaQuery(){
+      if(consulta.matches) {
+        $burgerButton.addEventListener('click', toggleMenu);
+      }
+      else {
+        $burgerButton.removeEventListener('click', toggleMenu);
+        }
+    }
+
     mediaQuery();
 
     //Lazy loading
@@ -140,11 +162,11 @@
         selector: 'img'
     });
 
-      /*$burgerButton.addEventListener('click', toggleMenu);
-
-      function toggleMenu(){
-        $menu.classList.toggle('active')
-      };*/
+    //hammer.js gestos
+    var $body = document.body;
+    var gestos = new Hammer($body);
+    gestos.on('swipeleft', hideMenu);
+    gestos.on('swiperight', showMenu);
     </script>
   </body>
 </html>
